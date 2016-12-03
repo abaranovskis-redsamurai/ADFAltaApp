@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="countriesListViewPageDef"
+                Package="com.redsamurai.view.pageDefs.fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CountriesView1" RangeSize="25" DataControl="HrModuleDataControl" id="CountriesView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CountriesView1Iterator" id="CountriesView1">
+      <nodeDefinition DefName="com.redsamurai.model.views.CountriesView" Name="CountriesView10">
+        <AttrNames>
+          <Item Value="CountryName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

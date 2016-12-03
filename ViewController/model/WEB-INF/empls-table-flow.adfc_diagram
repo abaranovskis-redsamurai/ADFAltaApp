@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">emplsTableView</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">414.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>emplsTableView&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">241.59766</property>
+      <property
+         name="page">/fragments/emplsTableView.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>deps-flow&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">deps-flow</property>
+      <property
+         name="x">676.5</property>
+      <property
+         name="y">240.74707</property>
+      <property
+         name="documentReference">/WEB-INF/deps-flow.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">deps-flow</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="TaskFlowCall3"
+      to="View2">
+      <property
+         name="fromOutcome">close</property>
+      <property
+         name="sdm:polyPoints">L45,634.7108,236.12758,455.76892,236.97816,R45</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">deps</property>
+      <property
+         name="sdm:polyPoints">R54,455.01648,245.03125,635.5,244.18066,L54</property>
+   </ControlFlowCase>
+</SDM>

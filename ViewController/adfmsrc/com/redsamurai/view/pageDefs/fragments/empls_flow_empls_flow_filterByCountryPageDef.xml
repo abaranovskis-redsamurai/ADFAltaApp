@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8"
+                id="empls_flow_empls_flow_filterByCountryPageDef" Package="com.redsamurai.view.pageDefs.fragments"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="filterByCountry" RequiresUpdateModel="true" Action="invokeMethod" MethodName="filterByCountry"
+                  IsViewObjectMethod="true" DataControl="HrModuleDataControl"
+                  InstanceName="data.HrModuleDataControl.EmployeesView1"
+                  ReturnName="data.HrModuleDataControl.methodResults.filterByCountry_HrModuleDataControl_EmployeesView1_filterByCountry_result">
+      <NamedData NDName="countryId" NDValue="#{pageFlowScope.CountryId}" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

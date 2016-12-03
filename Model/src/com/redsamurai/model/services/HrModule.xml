@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="HrModule"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge"
+  ComponentClass="com.redsamurai.model.services.HrModuleImpl"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="EmployeesView1"
+    ViewObjectName="com.redsamurai.model.views.EmployeesView"/>
+  <ViewUsage
+    Name="EmployeesView2"
+    ViewObjectName="com.redsamurai.model.views.EmployeesView"/>
+  <ViewUsage
+    Name="CountriesView1"
+    ViewObjectName="com.redsamurai.model.views.CountriesView"/>
+  <ViewUsage
+    Name="DepartmentsView1"
+    ViewObjectName="com.redsamurai.model.views.DepartmentsView"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink1"
+    ViewLinkObjectName="com.redsamurai.model.views.links.EmpManagerFkLink"
+    SrcViewUsageName="com.redsamurai.model.services.HrModule.EmployeesView1"
+    DstViewUsageName="com.redsamurai.model.services.HrModule.EmployeesView2"
+    Reversed="false"/>
+</AppModule>

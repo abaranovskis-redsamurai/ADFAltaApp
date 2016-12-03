@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="dashboardViewPageDef"
+                Package="com.redsamurai.view.pageDefs.fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmployeesView1" RangeSize="-1" DataControl="HrModuleDataControl" id="EmployeesView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="EmployeesView1Iterator" id="EmployeesView1" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="com.redsamurai.model.views.EmployeesView" Name="EmployeesView1">
+        <AttrNames>
+          <Item Value="MinSalary"/>
+          <Item Value="Email"/>
+          <Item Value="Salary"/>
+          <Item Value="MaxSalary"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="EmployeesView1Iterator" id="EmployeesView11" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="com.redsamurai.model.views.EmployeesView" Name="EmployeesView11">
+        <AttrNames>
+          <Item Value="MinSalary"/>
+          <Item Value="MaxSalary"/>
+          <Item Value="Email"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="EmployeesView1Iterator" id="MinAllSalary">
+      <AttrNames>
+        <Item Value="MinAllSalary"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesView1Iterator" id="MaxAllSalary">
+      <AttrNames>
+        <Item Value="MaxAllSalary"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="EmployeesView1Iterator" id="EmployeesView12">
+      <nodeDefinition DefName="com.redsamurai.model.views.EmployeesView" Name="EmployeesView120">
+        <AttrNames>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="HireDate"/>
+          <Item Value="Salary"/>
+          <Item Value="JobTitle"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+    <af:panelGroupLayout id="pgltlcon" styleClass="WBViewPersonContainerMargin" clientComponent="true" valign="top"
+                         layout="horizontal">
+        <af:panelGroupLayout id="pgl5" layout="vertical">
+            <af:panelGroupLayout id="pgl1" styleClass="WBViewPersonTileContainer">
+                <!--      Handle the Custom event from the tile selection.  -->
+                <af:serverListener type="tileSelected"
+                                   method="#{backingBeanScope.DashboardBean.infoTileSelectionHandler}"/>
+                <af:declarativeComponent viewId="/components/infoTile/infoTile.jsff" id="inft0">
+                    <f:attribute name="selected"
+                                 value="#{pageFlowScope.selectedTile eq 0 or pageFlowScope.selectedTile eq null}"/>
+                    <f:attribute name="index" value="0"/>
+                    <f:attribute name="layout" value="#{'vertical'}"/>
+                    <f:attribute name="tileWidth" value="200px"/>
+                    <f:attribute name="tileHeight" value="200px"/>
+                    <!-- Summary InfoTile -->
+                    <f:facet name="tileContent">
+                        <af:panelGroupLayout layout="vertical" id="tcon0">
+                            <af:outputText value="Salary" id="title0" styleClass="WBInfoTileTitle"
+                                           inlineStyle="font-weight:bold; font-size:large;"/>
+                            <af:spacer width="10" height="10" id="s4"/>
+                            <af:panelGridLayout styleClass="AFStretchWidth" id="pgl15">
+                                <af:gridRow marginTop="15px" id="gr2">
+                                    <af:gridCell width="50%" halign="center" valign="middle" marginStart="5px"
+                                                 marginEnd="5px" id="gc7">
+                                        <af:outputText value="#{bindings.MinAllSalary.inputValue div 1000} K"
+                                                       styleClass="WBMetric WBMetric4Color" id="ot3"/>
+                                    </af:gridCell>
+                                    <af:gridCell id="gc1" width="20px" rowSpan="2"/>
+                                    <af:gridCell width="50%" halign="center" valign="middle" marginStart="5px"
+                                                 marginEnd="5px" id="gc8">
+                                        <af:outputText value="#{bindings.MaxAllSalary.inputValue div 1000} K"
+                                                       styleClass="WBMetric WBMetric4Color" id="ot8"/>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow id="gr3" marginTop="20px">
+                                    <af:gridCell halign="center" valign="middle" marginStart="5px" marginEnd="5px"
+                                                 id="gc10">
+                                        <af:outputText value="Minimum" styleClass="WBDashboardLabel" id="ot11"
+                                                       inlineStyle="font-weight:bold;"/>
+                                    </af:gridCell>
+                                    <af:gridCell halign="center" valign="middle" marginStart="5px" marginEnd="5px"
+                                                 id="gc26">
+                                        <af:outputText value="Maximum" styleClass="WBDashboardLabel"
+                                                       inlineStyle="font-weight:bold;" id="ot12"/>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <!-- Workaround infoTile Issue. Any component with implicit clientComponent="true" will prevent selection-->
+                                <af:clientListener method="InfoTileComp.raiseSelectionEvent" type="click"/>
+                            </af:panelGridLayout>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:declarativeComponent>
+                <af:declarativeComponent viewId="/components/infoTile/infoTile.jsff" id="dc1">
+                    <f:attribute name="selected" value="#{pageFlowScope.selectedTile eq 1}"/>
+                    <f:attribute name="index" value="1"/>
+                    <f:attribute name="layout" value="#{'vertical'}"/>
+                    <f:attribute name="tileWidth" value="200px"/>
+                    <f:attribute name="tileHeight" value="200px"/>
+                    <!-- Summary InfoTile -->
+                    <f:facet name="tileContent">
+                        <af:panelGroupLayout layout="vertical" id="pgl3">
+                            <af:outputText value="Drill-down" id="ot1" styleClass="WBInfoTileTitle"
+                                           inlineStyle="font-weight:bold; font-size:large;"/>
+                            <af:panelGridLayout styleClass="AFStretchWidth" id="pgl4">
+                                <af:gridRow marginTop="15px" id="gr1">
+                                    <af:gridCell width="50%" halign="center" valign="middle" marginStart="5px"
+                                                 marginEnd="5px" id="gc2">
+                                        <dvt:statusMeterGauge id="statusMeterGauge1" orientation="circular"
+                                                              inlineStyle="width:75px;height:75px" minimum="2100"
+                                                              maximum="30000" value="17000">
+                                            <dvt:gaugeThreshold id="thr1" color="#00d600" maximum="16000"/>
+                                            <dvt:gaugeThreshold id="thr2" color="#d62800"/>
+                                            <dvt:gaugeMetricLabel rendered="true" id="gml1"/>
+                                        </dvt:statusMeterGauge>
+                                    </af:gridCell>
+                                    <af:gridCell id="gc3" width="20px" rowSpan="2"/>
+                                    <af:gridCell width="50%" halign="center" valign="middle" marginStart="5px"
+                                                 marginEnd="5px" id="gc4">
+                                        <dvt:statusMeterGauge id="statusMeterGauge2" orientation="circular"
+                                                              inlineStyle="width:75px;height:75px" value="10500"
+                                                              minimum="2100" maximum="30000">
+                                            <dvt:gaugeThreshold id="gt1" color="#00d600" maximum="16000"/>
+                                            <dvt:gaugeThreshold id="gt2" color="#d62800"/>
+                                            <dvt:gaugeMetricLabel rendered="true" id="gml2"/>
+                                        </dvt:statusMeterGauge>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <af:gridRow id="gr4" marginTop="20px">
+                                    <af:gridCell halign="center" valign="middle" marginStart="5px" marginEnd="5px"
+                                                 id="gc5">
+                                        <af:outputText value="Turnover" styleClass="WBDashboardLabel" id="ot5"
+                                                       inlineStyle="font-weight:bold;"/>
+                                    </af:gridCell>
+                                    <af:gridCell halign="center" valign="middle" marginStart="5px" marginEnd="5px"
+                                                 id="gc6">
+                                        <af:outputText value="Profit" styleClass="WBDashboardLabel" id="ot6"
+                                                       inlineStyle="font-weight:bold;"/>
+                                    </af:gridCell>
+                                </af:gridRow>
+                                <!-- Workaround infoTile Issue. Any component with implicit clientComponent="true" will prevent selection-->
+                                <af:clientListener method="InfoTileComp.raiseSelectionEvent" type="click"/>
+                            </af:panelGridLayout>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                </af:declarativeComponent>
+            </af:panelGroupLayout>
+        </af:panelGroupLayout>
+        <af:spacer width="10" height="10" id="s1"/>
+        <af:panelGroupLayout id="pgltlc" layout="vertical" styleClass="AFStretchWidth WBViewPersonTileContent"
+                             valign="top">
+            <af:deck id="d1"
+                     displayedChild="#{'infd'}#{pageFlowScope.selectedTile == null ? 0 : pageFlowScope.selectedTile}"
+                     partialTriggers="pgl1">
+                <af:transition triggerType="backNavigate"
+                               transition="#{orientationManager.infoTileDeckBackTransition}"/>
+                <af:transition triggerType="forwardNavigate"
+                               transition="#{orientationManager.infoTileDeckForwardTransition}"/>
+                <af:panelGroupLayout id="infd0" styleClass="AFStretchWidth" layout="vertical">
+                    <af:outputText value="Overview" id="ot4" styleClass="WBDashboardLabel"
+                                   inlineStyle="font-weight:bold;"/>
+                    <dvt:lineChart id="lineChart1" var="row" value="#{bindings.EmployeesView1.collectionModel}"
+                                   inlineStyle="width:1300px; height:355px;">
+                        <f:facet name="dataStamp">
+                            <af:group id="g1">
+                                <dvt:chartDataItem id="di1" value="#{row.MinSalary}" group="#{row.Email}"
+                                                   series="#{bindings.EmployeesView1.hints.MinSalary.label}"/>
+                                <dvt:chartDataItem id="di2" value="#{row.Salary}" group="#{row.Email}"
+                                                   series="#{bindings.EmployeesView1.hints.Salary.label}"/>
+                                <dvt:chartDataItem id="di3" value="#{row.MaxSalary}" group="#{row.Email}"
+                                                   series="#{bindings.EmployeesView1.hints.MaxSalary.label}"/>
+                            </af:group>
+                        </f:facet>
+                    </dvt:lineChart>
+                    <af:panelBox text="Employees" id="pb3" showDisclosure="false">
+                        <f:facet name="toolbar"/>
+                        <af:listView value="#{bindings.EmployeesView12.collectionModel}" var="item"
+                                     emptyText="#{bindings.EmployeesView12.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                     fetchSize="5" id="lv1">
+                            <af:listItem id="li1">
+                                <af:panelGridLayout id="pgl2">
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr5">
+                                        <af:gridCell marginStart="5px" width="20%" id="gc9">
+                                            <af:outputFormatted value="#{item.bindings.FirstName.inputValue}" id="of1"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="20%" id="gc11">
+                                            <af:outputFormatted value="#{item.bindings.LastName.inputValue}" id="of2"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="20%" id="gc12">
+                                            <af:outputFormatted value="#{item.bindings.HireDate.inputValue}" id="of3">
+                                                <af:convertDateTime pattern="#{bindings.EmployeesView12.hints.HireDate.format}"/>
+                                            </af:outputFormatted>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="20%" id="gc13">
+                                            <af:outputFormatted value="#{item.bindings.Salary.inputValue}" id="of4">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.EmployeesView12.hints.Salary.format}"/>
+                                            </af:outputFormatted>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc14">
+                                            <af:outputFormatted value="#{item.bindings.JobTitle.inputValue}" id="of5"/>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:listItem>
+                        </af:listView>
+                    </af:panelBox>
+                    <f:facet name="separator">
+                        <af:spacer width="10" height="10" id="s2"/>
+                    </f:facet>
+                </af:panelGroupLayout>
+                <af:panelGroupLayout id="infd1" styleClass="AFStretchWidth" layout="vertical">
+                    <af:outputText value="Performance" id="ot2" styleClass="WBDashboardLabel"
+                                   inlineStyle="font-weight:bold;"/>
+                    <dvt:scatterChart id="scatterChart1" var="row" value="#{bindings.EmployeesView11.collectionModel}"
+                                      inlineStyle="width:1300px; height:350px;">
+                        <dvt:chartLegend rendered="false" id="cl1">
+                            <dvt:legendSection source="ag1" id="ls1"/>
+                        </dvt:chartLegend>
+                        <f:facet name="dataStamp">
+                            <dvt:chartDataItem id="di4" group="#{row.Email}" x="#{row.MinSalary}" y="#{row.MaxSalary}">
+                                <dvt:attributeGroups id="ag1" value="#{row.Email}" type="color shape"/>
+                            </dvt:chartDataItem>
+                        </f:facet>
+                    </dvt:scatterChart>
+                    <f:facet name="separator">
+                        <af:spacer width="10" height="10" id="s3"/>
+                    </f:facet>
+                </af:panelGroupLayout>
+            </af:deck>
+        </af:panelGroupLayout>
+    </af:panelGroupLayout>
+</ui:composition>

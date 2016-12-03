@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:iterator id="i1" rows="0" value="#{bindings.EmployeesView1.attributesModel.hierarchicalAttributes}" var="attr">
+        <af:switcher id="sw1" facetName="#{attr.descriptorType}" defaultFacet="ATTRIBUTE">
+            <f:facet name="GROUP">
+                <af:panelHeader text="#{attr.label}">
+                    <f:facet name="context"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t1" rendered="#{attr.name == 'PersonalData'}">
+                            <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b2"/>
+                            <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true"
+                                       id="b3">
+                                <af:resetActionListener/>
+                            </af:button>
+                            <af:button text="Back" id="b1" action="view"/>
+                        </af:toolbar>
+                    </f:facet>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                    <af:separator id="s3"/>
+                    <af:panelFormLayout rows="#{attr.name == 'JobData' ? 4 : 10}">
+                        <af:iterator id="gi1" value="#{attr.descriptors}" var="nestedAttr" rows="0">
+                            <af:dynamicComponent id="gd1" attributeModel="#{nestedAttr}"
+                                                 value="#{nestedAttr.attributeBinding.inputValue}"/>
+                        </af:iterator>
+                    </af:panelFormLayout>
+                </af:panelHeader>
+                <af:spacer width="10" height="10" id="s4"/>
+            </f:facet>
+            <f:facet name="ATTRIBUTE">
+                <!--ignore ungrouped attribute-->
+            </f:facet>
+        </af:switcher>
+    </af:iterator>
+</ui:composition>

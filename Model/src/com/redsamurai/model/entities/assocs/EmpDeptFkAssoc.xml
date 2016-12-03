@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmpDeptFkAssoc"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Departments"
+    Cardinality="1"
+    Source="true"
+    Owner="com.redsamurai.model.entities.Departments">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Departments"/>
+      <Attr Name="_foreignKey" Value="com.redsamurai.model.entities.Departments.DeptIdPk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.redsamurai.model.entities.Departments.DepartmentId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Employees"
+    Cardinality="-1"
+    Owner="com.redsamurai.model.entities.Employees">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Employees"/>
+      <Attr Name="_foreignKey" Value="com.redsamurai.model.entities.Employees.EmpDeptFk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.redsamurai.model.entities.Employees.DepartmentId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

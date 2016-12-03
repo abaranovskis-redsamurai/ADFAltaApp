@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="depsViewPageDef"
+                Package="com.redsamurai.view.pageDefs.fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DepartmentsView1" RangeSize="25" DataControl="HrModuleDataControl" id="DepartmentsView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DepartmentsView1Iterator" id="DepartmentsView1">
+      <nodeDefinition DefName="com.redsamurai.model.views.DepartmentsView" Name="DepartmentsView10">
+        <AttrNames>
+          <Item Value="DepartmentName"/>
+          <Item Value="MinSalary"/>
+          <Item Value="AvgSalary"/>
+          <Item Value="MaxSalary"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

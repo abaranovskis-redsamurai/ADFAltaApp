@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="emplsTableViewPageDef"
+                Package="com.redsamurai.view.pageDefs.fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmployeesView1" RangeSize="25" DataControl="HrModuleDataControl" id="EmployeesView1Iterator"/>
+    <searchRegion Binds="EmployeesView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="EmployeesView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="EmployeesView1Iterator" id="EmployeesView1">
+      <nodeDefinition DefName="com.redsamurai.model.views.EmployeesView" Name="EmployeesView10">
+        <AttrNames>
+          <Item Value="EmployeeId"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="HireDate"/>
+          <Item Value="Salary"/>
+          <Item Value="DepartmentName"/>
+          <Item Value="JobTitle"/>
+          <Item Value="City"/>
+          <Item Value="DepartmentId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

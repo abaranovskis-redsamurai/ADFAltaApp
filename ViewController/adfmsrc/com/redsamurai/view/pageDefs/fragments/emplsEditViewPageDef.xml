@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="emplsEditViewPageDef"
+                Package="com.redsamurai.view.pageDefs.fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmployeesView1" RangeSize="25" DataControl="HrModuleDataControl" id="EmployeesView1Iterator"/>
+  </executables>
+  <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="HrModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="HrModuleDataControl"/>
+    <tree IterBinding="EmployeesView1Iterator" id="EmployeesView1">
+      <nodeDefinition DefName="com.redsamurai.model.views.EmployeesView" Name="EmployeesView10"/>
+    </tree>
+  </bindings>
+</pageDefinition>

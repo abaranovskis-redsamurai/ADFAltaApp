@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="dashboard-flow">
+    <default-activity>dashboardView</default-activity>
+    <data-control-scope>
+      <isolated/>
+    </data-control-scope>
+    <managed-bean id="__1">
+      <managed-bean-name>DashboardBean</managed-bean-name>
+      <managed-bean-class>com.redsamurai.view.beans.Dashboard</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="dashboardView">
+      <page>/fragments/dashboardView.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

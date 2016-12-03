@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="empls-flow">
+    <default-activity>Router</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__2">
+      <name>CountryId</name>
+      <value>#{pageFlowScope.CountryId}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <managed-bean id="__1">
+      <managed-bean-name>EmployeesBean</managed-bean-name>
+      <managed-bean-class>com.redsamurai.view.beans.Employees</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="emplsView">
+      <page>/fragments/emplsView.jsff</page>
+    </view>
+    <view id="emplsEditView">
+      <page>/fragments/emplsEditView.jsff</page>
+    </view>
+    <router id="Router">
+      <case id="__10">
+        <expression>#{pageFlowScope.CountryId != null}</expression>
+        <outcome>filter</outcome>
+      </case>
+      <default-outcome>view</default-outcome>
+    </router>
+    <method-call id="filterByCountry">
+      <method>#{bindings.filterByCountry.execute}</method>
+      <outcome>
+        <fixed-outcome>filterByCountry</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__3">
+      <from-activity-id>emplsView</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>emplsEditView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>emplsEditView</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>view</from-outcome>
+        <to-activity-id>emplsView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>Router</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>view</from-outcome>
+        <to-activity-id>emplsView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>filter</from-outcome>
+        <to-activity-id>filterByCountry</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id>filterByCountry</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>filterByCountry</from-outcome>
+        <to-activity-id>emplsView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

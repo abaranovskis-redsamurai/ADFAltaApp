@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="empls-table-flow">
+    <default-activity>emplsTableView</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="emplsTableView">
+      <page>/fragments/emplsTableView.jsff</page>
+    </view>
+    <task-flow-call id="deps-flow">
+      <task-flow-reference>
+        <document>/WEB-INF/deps-flow.xml</document>
+        <id>deps-flow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>deps-flow</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>close</from-outcome>
+        <to-activity-id>emplsTableView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>emplsTableView</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>deps</from-outcome>
+        <to-activity-id>deps-flow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

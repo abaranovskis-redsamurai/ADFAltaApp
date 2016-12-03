@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="indexPageDef"
+                Package="com.redsamurai.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="emplsflow1" taskFlowId="/WEB-INF/empls-flow.xml#empls-flow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded">
+      <parameters>
+        <parameter id="CountryId" value="#{sessionScope.countryId}"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="emplstableflow1" taskFlowId="/WEB-INF/empls-table-flow.xml#empls-table-flow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="emplsdetailsflow1" taskFlowId="/WEB-INF/empls-details-flow.xml#empls-details-flow"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded">
+      <parameters>
+        <parameter id="CountryId" value="#{sessionScope.countryId}"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="dashboardflow1" taskFlowId="/WEB-INF/dashboard-flow.xml#dashboard-flow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+    <af:masonryLayout id="ml1" styleClass="RedSamuraiDashboard">
+        <af:panelGroupLayout id="pgl1" styleClass="AFMasonryTileSize2x4 tileStyle">
+            <af:panelHeader text="Employee" id="ph1" styleClass="AFStretchWidth">
+                <f:facet name="context"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t1">
+                        <af:button text="Previous" id="b1" actionListener="#{bindings.Previous.execute}"
+                                   disabled="#{!bindings.Previous.enabled}"/>
+                        <af:button text="Next" id="b2" actionListener="#{bindings.Next.execute}"
+                                   disabled="#{!bindings.Next.enabled}"/>
+                    </af:toolbar>
+                </f:facet>
+                <f:facet name="menuBar"/>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.FirstName.inputValue}" label="#{bindings.FirstName.hints.label}"
+                                  required="#{bindings.FirstName.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.FirstName.hints.displayWidth}"
+                                  maximumLength="#{bindings.FirstName.hints.precision}"
+                                  shortDesc="#{bindings.FirstName.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.FirstName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.LastName.inputValue}" label="#{bindings.LastName.hints.label}"
+                                  required="#{bindings.LastName.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.LastName.hints.displayWidth}"
+                                  maximumLength="#{bindings.LastName.hints.precision}"
+                                  shortDesc="#{bindings.LastName.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.LastName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}"
+                                  required="#{bindings.Email.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.Email.hints.displayWidth}"
+                                  maximumLength="#{bindings.Email.hints.precision}"
+                                  shortDesc="#{bindings.Email.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.Email.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.PhoneNumber.inputValue}" label="#{bindings.PhoneNumber.hints.label}"
+                                  required="#{bindings.PhoneNumber.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.PhoneNumber.hints.displayWidth}"
+                                  maximumLength="#{bindings.PhoneNumber.hints.precision}"
+                                  shortDesc="#{bindings.PhoneNumber.hints.tooltip}" id="it4">
+                        <f:validator binding="#{bindings.PhoneNumber.validator}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.HireDate.inputValue}" readOnly="true"
+                                  label="#{bindings.HireDate.hints.label}"
+                                  required="#{bindings.HireDate.hints.mandatory}"
+                                  columns="#{bindings.HireDate.hints.displayWidth}"
+                                  shortDesc="#{bindings.HireDate.hints.tooltip}" id="id1">
+                        <f:validator binding="#{bindings.HireDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.HireDate.format}"/>
+                    </af:inputDate>
+                    <af:inputText value="#{bindings.Salary.inputValue}" label="#{bindings.Salary.hints.label}"
+                                  required="#{bindings.Salary.hints.mandatory}" readOnly="true"
+                                  maximumLength="#{bindings.Salary.hints.precision}"
+                                  shortDesc="#{bindings.Salary.hints.tooltip}" id="it5">
+                        <f:validator binding="#{bindings.Salary.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.Salary.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.CommissionPct.inputValue}"
+                                  label="#{bindings.CommissionPct.hints.label}"
+                                  required="#{bindings.CommissionPct.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.CommissionPct.hints.displayWidth}"
+                                  maximumLength="#{bindings.CommissionPct.hints.precision}"
+                                  shortDesc="#{bindings.CommissionPct.hints.tooltip}" id="it6">
+                        <f:validator binding="#{bindings.CommissionPct.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.CommissionPct.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.DepartmentId.inputValue}"
+                                  label="#{bindings.DepartmentId.hints.label}"
+                                  required="#{bindings.DepartmentId.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.DepartmentId.hints.displayWidth}"
+                                  maximumLength="#{bindings.DepartmentId.hints.precision}"
+                                  shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="it7">
+                        <f:validator binding="#{bindings.DepartmentId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.DepartmentName.inputValue}"
+                                  label="#{bindings.DepartmentName.hints.label}"
+                                  required="#{bindings.DepartmentName.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.DepartmentName.hints.displayWidth}"
+                                  maximumLength="#{bindings.DepartmentName.hints.precision}"
+                                  shortDesc="#{bindings.DepartmentName.hints.tooltip}" id="it8">
+                        <f:validator binding="#{bindings.DepartmentName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.JobTitle.inputValue}" label="#{bindings.JobTitle.hints.label}"
+                                  required="#{bindings.JobTitle.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.JobTitle.hints.displayWidth}"
+                                  maximumLength="#{bindings.JobTitle.hints.precision}"
+                                  shortDesc="#{bindings.JobTitle.hints.tooltip}" id="it9">
+                        <f:validator binding="#{bindings.JobTitle.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.City.inputValue}" label="#{bindings.City.hints.label}"
+                                  required="#{bindings.City.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.City.hints.displayWidth}"
+                                  maximumLength="#{bindings.City.hints.precision}"
+                                  shortDesc="#{bindings.City.hints.tooltip}" id="it11">
+                        <f:validator binding="#{bindings.City.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.StateProvince.inputValue}"
+                                  label="#{bindings.StateProvince.hints.label}"
+                                  required="#{bindings.StateProvince.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.StateProvince.hints.displayWidth}"
+                                  maximumLength="#{bindings.StateProvince.hints.precision}"
+                                  shortDesc="#{bindings.StateProvince.hints.tooltip}" id="it12">
+                        <f:validator binding="#{bindings.StateProvince.validator}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
+            </af:panelHeader>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl2" styleClass="AFMasonryTileSize4x2 tileStyle">
+            <af:panelStretchLayout id="psl1" topHeight="30px">
+                <f:facet name="start"/>
+                <f:facet name="end"/>
+                <f:facet name="top">
+                    <af:outputText value="Compensation" styleClass="WBDashboardDescription" id="ot1"/>
+                </f:facet>
+                <f:facet name="bottom"/>
+                <f:facet name="center">
+                    <dvt:lineChart id="lineChart1" var="row" value="#{bindings.EmployeesView1.collectionModel}"
+                                   inlineStyle="width:690px; height:300px;">
+                        <dvt:chartLegend id="cl1"/>
+                        <f:facet name="dataStamp">
+                            <af:group id="g1">
+                                <dvt:chartDataItem id="di1" series="#{bindings.EmployeesView1.hints.Salary.label}"
+                                                   value="#{row.Salary}" group="#{row.Email}"/>
+                                <dvt:chartDataItem id="di2" series="#{bindings.EmployeesView1.hints.MinAllSalary.label}"
+                                                   value="#{row.MinAllSalary}" group="#{row.Email}"/>
+                                <dvt:chartDataItem id="di3" series="#{bindings.EmployeesView1.hints.MaxAllSalary.label}"
+                                                   value="#{row.MaxAllSalary}" group="#{row.Email}"/>
+                            </af:group>
+                        </f:facet>
+                    </dvt:lineChart>
+                </f:facet>
+            </af:panelStretchLayout>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl3" styleClass="AFMasonryTileSize2x2 tileStyle">
+            <af:region value="#{bindings.salarythresholdflow1.regionModel}" id="r1"/>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl4" styleClass="AFMasonryTileSize2x2 tileStyle">
+            <af:region value="#{bindings.salaryaverageflow1.regionModel}" id="r2"/>
+        </af:panelGroupLayout>
+    </af:masonryLayout>
+</ui:composition>

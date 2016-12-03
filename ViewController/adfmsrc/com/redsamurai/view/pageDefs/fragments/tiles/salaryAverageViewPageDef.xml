@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="salaryAverageViewPageDef"
+                Package="com.redsamurai.view.pageDefs.fragments.tiles">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmployeesView1" RangeSize="1" DataControl="HrModuleDataControl" id="EmployeesView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="EmployeesView1Iterator" id="MaxSalary">
+      <AttrNames>
+        <Item Value="MaxSalary"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesView1Iterator" id="Salary">
+      <AttrNames>
+        <Item Value="Salary"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesView1Iterator" id="MinSalary">
+      <AttrNames>
+        <Item Value="MinSalary"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

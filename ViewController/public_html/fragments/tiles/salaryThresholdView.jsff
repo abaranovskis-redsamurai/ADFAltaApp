@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+    <af:panelStretchLayout id="psl1" topHeight="60px">
+        <f:facet name="start"/>
+        <f:facet name="end"/>
+        <f:facet name="top">
+            <af:outputText value="Salary Threshold" styleClass="WBDashboardDescription" id="ot1"/>
+        </f:facet>
+        <f:facet name="bottom"/>
+        <f:facet name="center">
+            <af:panelGroupLayout id="pgl1" halign="center" layout="vertical">
+                <dvt:statusMeterGauge orientation="circular" id="statusMeterGauge1" maximum="30000"
+                                      value="#{bindings.Salary.inputValue}" inlineStyle="width:220px;height:220px"
+                                      minimum="2100">
+                    <dvt:gaugeMetricLabel rendered="true" id="gml1"/>
+                    <dvt:gaugeThreshold id="thr1" color="#00d600" maximum="16000"/>
+                    <dvt:gaugeThreshold id="thr2" color="#d62800"/>
+                </dvt:statusMeterGauge>
+            </af:panelGroupLayout>
+        </f:facet>
+    </af:panelStretchLayout>
+</ui:composition>

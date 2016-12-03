@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <af:panelHeader text="Departments" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar">
+      <af:toolbar id="t1">
+        <af:button text="Close" id="b1" action="close"/>
+      </af:toolbar>
+    </f:facet>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:listView value="#{bindings.DepartmentsView1.collectionModel}" var="item"
+                 emptyText="#{bindings.DepartmentsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                 fetchSize="#{bindings.DepartmentsView1.rangeSize}" id="lv1">
+      <af:listItem id="li1">
+        <af:panelGridLayout id="pgl1">
+          <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+            <af:gridCell marginStart="5px" width="30%" id="gc1">
+              <af:outputFormatted value="#{item.bindings.DepartmentName.inputValue}" id="of1"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="70%" marginEnd="5px" id="gc2">
+              <dvt:sparkChart id="sparkchart1" subType="floatingBar" shortDesc="Salary values" highMarkerColor="#ff0000" lowMarkerColor="#52ff52" axisScaledFromBaseline="off"
+                              inlineStyle="width:420px;height:25px;">
+                <dvt:sparkItem id="si1" value="#{item.bindings.MinSalary.inputValue}" markerDisplayed="true"/>
+                <dvt:sparkItem id="si2" value="#{item.bindings.AvgSalary.inputValue}" markerDisplayed="true"/>
+                <dvt:sparkItem id="si3" value="#{item.bindings.MaxSalary.inputValue}" markerDisplayed="true"/>
+              </dvt:sparkChart>
+            </af:gridCell>
+          </af:gridRow>
+        </af:panelGridLayout>
+      </af:listItem>
+    </af:listView>
+  </af:panelHeader>
+</ui:composition>

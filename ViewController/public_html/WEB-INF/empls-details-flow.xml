@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="empls-details-flow">
+    <default-activity>Router</default-activity>
+    <data-control-scope>
+      <isolated/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>CountryId</name>
+      <value>#{pageFlowScope.CountryId}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <view id="emplsDetailsView">
+      <page>/fragments/emplsDetailsView.jsff</page>
+    </view>
+    <method-call id="filterByCountry">
+      <method>#{bindings.filterByCountry.execute}</method>
+      <outcome>
+        <fixed-outcome>filterByCountry</fixed-outcome>
+      </outcome>
+    </method-call>
+    <router id="Router">
+      <case id="__7">
+        <expression>#{pageFlowScope.CountryId != null}</expression>
+        <outcome>edit</outcome>
+      </case>
+      <default-outcome>view</default-outcome>
+    </router>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__2">
+      <from-activity-id>Router</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>view</from-outcome>
+        <to-activity-id>emplsDetailsView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>filterByCountry</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>filterByCountry</from-outcome>
+        <to-activity-id>emplsDetailsView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>filterByCountry</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

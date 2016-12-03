@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<af:pageTemplateDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" definition="private"
+                    xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component" xmlns:f="http://java.sun.com/jsf/core">
+    <af:xmlContent>
+        <afc:component>
+            <afc:description/>
+            <afc:display-name>tabletFirstTemplateLocal</afc:display-name>
+            <afc:facet>
+                <afc:facet-name>header</afc:facet-name>
+            </afc:facet>
+            <afc:facet>
+                <afc:facet-name>status</afc:facet-name>
+            </afc:facet>
+            <afc:facet>
+                <afc:facet-name>appNav</afc:facet-name>
+            </afc:facet>
+            <afc:facet>
+                <afc:facet-name>globalLinks</afc:facet-name>
+            </afc:facet>
+            <afc:facet>
+                <afc:facet-name>footer</afc:facet-name>
+            </afc:facet>
+            <afc:facet>
+                <afc:facet-name>center</afc:facet-name>
+            </afc:facet>
+            <afc:facet>
+                <afc:facet-name>start</afc:facet-name>
+            </afc:facet>
+            <afc:facet>
+                <afc:facet-name>end</afc:facet-name>
+            </afc:facet>
+            <afc:attribute>
+                <afc:attribute-name>logoImagePath</afc:attribute-name>
+                <afc:attribute-class>java.lang.String</afc:attribute-class>
+            </afc:attribute>
+            <afc:attribute>
+                <afc:attribute-name>logoSmallImagePath</afc:attribute-name>
+                <afc:attribute-class>java.lang.String</afc:attribute-class>
+            </afc:attribute>
+            <afc:attribute>
+                <afc:attribute-name>logoStyleClass</afc:attribute-name>
+                <afc:attribute-class>java.lang.String</afc:attribute-class>
+            </afc:attribute>
+            <afc:attribute>
+                <afc:attribute-name>logoShortDesc</afc:attribute-name>
+                <afc:attribute-class>java.lang.String</afc:attribute-class>
+            </afc:attribute>
+            <afc:attribute>
+                <afc:attribute-name>showAppNavbar</afc:attribute-name>
+                <afc:attribute-class>boolean</afc:attribute-class>
+                <afc:default-value>true</afc:default-value>
+            </afc:attribute>
+            <afc:attribute>
+                <afc:attribute-name>brandingMaxWidth</afc:attribute-name>
+                <afc:attribute-class>java.lang.String</afc:attribute-class>
+                <afc:default-value>1024px</afc:default-value>
+            </afc:attribute>
+            <afc:attribute>
+                <afc:attribute-name>minWidth</afc:attribute-name>
+                <afc:attribute-class>java.lang.String</afc:attribute-class>
+            </afc:attribute>
+            <afc:attribute>
+                <afc:attribute-name>startWidth</afc:attribute-name>
+                <afc:attribute-class>java.lang.String</afc:attribute-class>
+                <afc:default-value>170px</afc:default-value>
+            </afc:attribute>
+            <afc:attribute>
+                <afc:attribute-name>endWidth</afc:attribute-name>
+                <afc:attribute-class>java.lang.String</afc:attribute-class>
+                <afc:default-value>170px</afc:default-value>
+            </afc:attribute>
+            <afc:attribute>
+                <afc:attribute-name>showFooter</afc:attribute-name>
+                <afc:attribute-class>boolean</afc:attribute-class>
+            </afc:attribute>
+        </afc:component>
+    </af:xmlContent>
+    <af:group id="grp1">
+        <af:resource type="css" source="/styles/tabletFirstTemplate.css"/>
+        <div id="mainArea" class="MainArea">
+            <af:panelGroupLayout id="pt_pgl3">
+                <af:declarativeComponent viewId="brandingBar.jsff" id="bBarFDC" logoImagePath="#{attrs.logoImagePath}"
+                                         logoSmallImagePath="#{attrs.logoSmallImagePath}"
+                                         logoStyleClass="#{attrs.logoStyleClass}" logoShortDesc="#{attrs.logoShortDesc}"
+                                         showAppNavbar="#{attrs.showAppNavbar}" showStatusIndicator="true"
+                                         brandingMaxWidth="#{attrs.brandingMaxWidth}">
+                    <f:facet name="brandingTitle">
+                        <af:facetRef facetName="header"/>
+                    </f:facet>
+                    <f:facet name="appNavbar">
+                        <af:facetRef facetName="appNav"/>
+                    </f:facet>
+                    <f:facet name="globalNavbar">
+                        <af:facetRef facetName="globalLinks"/>
+                    </f:facet>
+                    <f:facet name="statusBar">
+                        <af:facetRef facetName="status"/>
+                    </f:facet>
+                </af:declarativeComponent>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pt_pgl1">
+                <af:declarativeComponent viewId="contentBody.jsff" id="cBodFDC" startWidth="#{attrs.startWidth}"
+                                         endWidth="#{attrs.endWidth}" minWidth="#{attrs.minWidth}"
+                                         brandingMaxWidth="#{attrs.brandingMaxWidth}">
+                    <f:facet name="startFacet">
+                        <af:facetRef facetName="start"/>
+                    </f:facet>
+                    <f:facet name="endFacet">
+                        <af:facetRef facetName="end"/>
+                    </f:facet>
+                    <f:facet name="content">
+                        <af:facetRef facetName="center"/>
+                    </f:facet>
+                </af:declarativeComponent>
+            </af:panelGroupLayout>
+        </div>
+        <div id="footerArea" class="FooterArea">
+            <af:group id="grp2">
+                <af:declarativeComponent viewId="footer.jsff" id="footFDC" showFooter="#{attrs.showFooter}"
+                                         brandingMaxWidth="#{attrs.brandingMaxWidth}">
+                    <f:facet name="footerBar">
+                        <af:facetRef facetName="footer"/>
+                    </f:facet>
+                </af:declarativeComponent>
+            </af:group>
+        </div>
+    </af:group>
+</af:pageTemplateDef>

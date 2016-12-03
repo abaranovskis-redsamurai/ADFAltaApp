@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:trh="http://myfaces.apache.org/trinidad/html">
+    <af:document title="Red Samurai Application" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1" partialTriggers="pt1:bBarFDC:b3 pt1:bBarFDC:b1">
+            <af:pageTemplate viewId="/templates/tabletFirstTemplateLocal.jsf" id="pt1">
+                <f:facet name="header">
+                    <af:panelGroupLayout id="pgl2" layout="horizontal">
+                        <af:spacer width="10" height="10" id="s2"/>
+                        <af:outputText value="Red Samurai Application" id="ot1"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+                <f:facet name="status">
+                    <af:menuBar id="mb1">
+                        <af:menu text="#{securityContext.userName}" id="m2">
+                            <af:commandMenuItem text="Sign Out" id="cmi1"/>
+                        </af:menu>
+                    </af:menuBar>
+                </f:facet>
+                <f:facet name="appNav">
+                    <af:panelGroupLayout id="pgl1" layout="horizontal">
+                        <af:button text="Dashboard" id="b3" styleClass="AFAppNavbarButton" type="radio"
+                                   icon="/resources/images/naviBarFaces/navi_dashboard_24_ena.png"
+                                   hoverIcon="/resources/images/naviBarFaces/navi_dashboard_24_hov.png"
+                                   depressedIcon="/resources/images/naviBarFaces/navi_dashboard_24_act.png"
+                                   selected="true">
+                            <af:setPropertyListener from="#{'dashboard'}" type="action" to="#{sessionScope.viewMode}"/>
+                        </af:button>
+                        <af:button text="Employees" id="b1" styleClass="AFAppNavbarButton" type="radio"
+                                   icon="/resources/images/naviBarFaces/navi_people_24_ena.png"
+                                   hoverIcon="/resources/images/naviBarFaces/navi_people_24_hov.png"
+                                   depressedIcon="/resources/images/naviBarFaces/navi_people_24_act.png">
+                            <af:setPropertyListener from="#{'employees'}" to="#{sessionScope.viewMode}" type="action"/>
+                        </af:button>
+                    </af:panelGroupLayout>
+                </f:facet>
+                <f:facet name="globalLinks"/>
+                <f:facet name="footer"/>
+                <f:facet name="center">
+                    <af:panelTabbed position="above" id="pt2" styleClass="ContentContainerWorkaround">
+                        <af:showDetailItem id="tab1" text="Employees Directory" disclosed="true"
+                                           rendered="#{sessionScope.viewMode == 'employees'}">
+                            <af:region value="#{bindings.emplsflow1.regionModel}" id="r1"
+                                       styleClass="ContentContainerWorkaround"/>
+                        </af:showDetailItem>
+                        <af:showDetailItem text="Profile" id="sdi2" rendered="#{sessionScope.viewMode == 'employees'}">
+                            <af:region value="#{bindings.emplsdetailsflow1.regionModel}" id="r7"
+                                       styleClass="ContentContainerWorkaround"/>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="tab2" text="Administration"
+                                           rendered="#{sessionScope.viewMode == 'employees'}">
+                            <af:region value="#{bindings.emplstableflow1.regionModel}" id="r2"
+                                       styleClass="ContentContainerWorkaround"/>
+                        </af:showDetailItem>
+                        <af:showDetailItem text="Dashboard" id="sdi4"
+                                           rendered="#{sessionScope.viewMode == null or sessionScope.viewMode == 'dashboard'}">
+                            <af:region value="#{bindings.dashboardflow1.regionModel}" id="r8"
+                                       styleClass="ContentContainerWorkaround"/>
+                        </af:showDetailItem>
+                    </af:panelTabbed>
+                </f:facet>
+                <f:facet name="end"/>
+                <f:attribute name="endWidth" value="0px"/>
+                <f:attribute name="showFooter" value="false"/>
+                <f:attribute name="minWidth" value="0px"/>
+                <f:attribute name="startWidth" value="0px"/>
+            </af:pageTemplate>
+        </af:form>
+        <f:facet name="metaContainer">
+            <trh:meta name="apple-mobile-web-app-capable" content="yes"/>
+            <trh:meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
+            <af:resource type="javascript" source="resources/js/WBMediaQuery.js"/>
+            <af:resource type="javascript" source="resources/js/WBClientScript.js"/>
+        </f:facet>
+    </af:document>
+</f:view>

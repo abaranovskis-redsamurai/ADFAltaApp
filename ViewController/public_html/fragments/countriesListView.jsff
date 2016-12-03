@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:listView value="#{bindings.CountriesView1.collectionModel}" var="item"
+               emptyText="#{bindings.CountriesView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+               fetchSize="#{bindings.CountriesView1.rangeSize}" id="lv1" selection="single"
+               selectionListener="#{backingBeanScope.CountriesList.selectCountry}">
+    <af:listItem id="li1">
+      <af:panelGroupLayout layout="horizontal" id="pgl1">
+        <f:facet name="separator">
+          <af:spacer width="10" id="s1"/>
+        </f:facet>
+        <af:outputFormatted value="#{item.bindings.CountryName.inputValue}" id="of1" inlineStyle="font-weight:bold;"/>
+      </af:panelGroupLayout>
+    </af:listItem>
+  </af:listView>
+</ui:composition>
