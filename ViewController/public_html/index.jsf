@@ -9,7 +9,7 @@
                 <f:facet name="header">
                     <af:panelGroupLayout id="pgl2" layout="horizontal">
                         <af:spacer width="10" height="10" id="s2"/>
-                        <af:outputText value="Red Samurai Application." id="ot1"/>
+                        <af:outputText value="Red Samurai Application" id="ot1"/>
                     </af:panelGroupLayout>
                 </f:facet>
                 <f:facet name="status">
