@@ -22,5 +22,10 @@
         <Item Value="MinSalary"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="EmployeesView1Iterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

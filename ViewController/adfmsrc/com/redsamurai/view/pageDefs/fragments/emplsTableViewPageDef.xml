@@ -4,9 +4,12 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="EmployeesView1" RangeSize="25" DataControl="HrModuleDataControl" id="EmployeesView1Iterator"/>
+    <iterator Binds="EmployeesView1" RangeSize="25" DataControl="HrModuleDataControl" id="EmployeesView1Iterator"
+              ChangeEventPolicy="none"/>
     <searchRegion Binds="EmployeesView1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="EmployeesView1Query"/>
+    <searchRegion Criteria="EmployeesViewCriteriaUI" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="EmployeesView1Iterator" id="EmployeesViewCriteriaUIQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="EmployeesView1Iterator" id="EmployeesView1">
@@ -24,5 +27,21 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="EmployeesView1Iterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesView1Iterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="EmployeesView1Iterator" StaticList="false" Uses="LOV_JobId" id="JobId"/>
+    <action IterBinding="EmployeesView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="EmployeesView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <methodAction id="testCall" RequiresUpdateModel="true" Action="invokeMethod" MethodName="testCall"
+                  IsViewObjectMethod="false" DataControl="HrModuleDataControl"
+                  InstanceName="bindings.testCall.dataControl.dataProvider"/>
   </bindings>
 </pageDefinition>

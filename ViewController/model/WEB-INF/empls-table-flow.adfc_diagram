@@ -11,9 +11,9 @@
       <property
          name="x">414.0</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>emplsTableView&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>emplsTableView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="y">241.59766</property>
       <property
@@ -46,7 +46,7 @@
       <property
          name="fromOutcome">close</property>
       <property
-         name="sdm:polyPoints">L45,634.7108,236.12758,455.76892,236.97816,R45</property>
+         name="sdm:polyPoints">L46,635.4835,237.18066,455.0,238.03125,R46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -57,5 +57,30 @@
          name="fromOutcome">deps</property>
       <property
          name="sdm:polyPoints">R54,455.01648,245.03125,635.5,244.18066,L54</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall6">
+      <property
+         name="activityId">filterByCountry</property>
+      <property
+         name="x">138.4209</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>filterByCountry&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">219.30078</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase7"
+      from="MethodCall6"
+      to="View2">
+      <property
+         name="fromOutcome">filterByCountry</property>
+      <property
+         name="sdm:polyPoints">R50,179.4209,219.23438,373.0,241.53125,L50</property>
    </ControlFlowCase>
 </SDM>

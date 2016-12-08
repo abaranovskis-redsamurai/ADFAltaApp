@@ -4,7 +4,7 @@
 <JboProject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="Model"
-  Version="12.1.3.10.8"
+  Version="12.2.1.16.48"
   SeparateXMLFiles="true"
   PackageName="com.redsamurai.model">
   <DesignTime>
@@ -44,6 +44,14 @@
     ObjectType="JboPackage">
     <DesignTime>
       <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="lovs"
+    PackageName="com.redsamurai.model.views.lovs"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
     </DesignTime>
   </Containee>
   <Containee

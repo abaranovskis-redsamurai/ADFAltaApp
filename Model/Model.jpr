@@ -102,6 +102,7 @@
          <string v=".xsl"/>
          <string v=".jpx"/>
          <string v=".rpx"/>
+         <string v=".bcs"/>
       </list>
       <value n="internalEncoding" v="Cp1252"/>
       <value n="webIANAEncoding" v="windows-1252"/>

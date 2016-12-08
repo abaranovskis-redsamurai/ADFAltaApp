@@ -27,6 +27,8 @@
     <page path="/fragments/dashboardView.jsff" usageId="com_redsamurai_view_dashboardViewPageDef"/>
     <page path="/fragments/tiles/salaryThresholdView.jsff" usageId="com_redsamurai_view_salaryThresholdViewPageDef"/>
     <page path="/fragments/tiles/salaryAverageView.jsff" usageId="com_redsamurai_view_salaryAverageViewPageDef"/>
+    <page path="/WEB-INF/empls-table-flow.xml#empls-table-flow@filterByCountry"
+          usageId="com_redsamurai_view_empls_table_flow_empls_table_flow_filterByCountryPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_redsamurai_view_emplsViewPageDef" path="com.redsamurai.view.pageDefs.fragments.emplsViewPageDef"/>
@@ -54,6 +56,8 @@
           path="com.redsamurai.view.pageDefs.fragments.tiles.salaryThresholdViewPageDef"/>
     <page id="com_redsamurai_view_salaryAverageViewPageDef"
           path="com.redsamurai.view.pageDefs.fragments.tiles.salaryAverageViewPageDef"/>
+    <page id="com_redsamurai_view_empls_table_flow_empls_table_flow_filterByCountryPageDef"
+          path="com.redsamurai.view.pageDefs.fragments.empls_table_flow_empls_table_flow_filterByCountryPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="HrModuleDataControl" Package="com.redsamurai.model.services"

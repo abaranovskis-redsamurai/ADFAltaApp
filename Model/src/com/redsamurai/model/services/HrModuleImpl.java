@@ -1,5 +1,6 @@
 package com.redsamurai.model.services;
 
+import com.redsamurai.model.services.common.HrModule;
 import com.redsamurai.model.views.DepartmentsViewImpl;
 import com.redsamurai.model.views.EmployeesViewImpl;
 
@@ -13,11 +14,15 @@ import oracle.jbo.server.ViewObjectImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class HrModuleImpl extends ApplicationModuleImpl {
+public class HrModuleImpl extends ApplicationModuleImpl implements HrModule {
     /**
      * This is the default constructor (do not remove).
      */
     public HrModuleImpl() {
+    }
+    
+    public void testCall() {
+        System.out.println("This is Test Call");
     }
 
     /**

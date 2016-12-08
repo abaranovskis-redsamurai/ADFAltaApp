@@ -6,6 +6,12 @@
         <f:facet name="menuBar"/>
         <f:facet name="toolbar">
             <af:toolbar id="t2">
+                <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                           disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b5"/>
+                <af:button actionListener="#{bindings.Next.execute}" text="Next" disabled="#{!bindings.Next.enabled}"
+                           partialSubmit="true" id="b6"/>
+                <af:button text="Test" id="b4"
+                           actionListener="#{backingBeanScope.EmployeeTableBeans.testCallListener}"/>
                 <af:button text="Save" id="b2"/>
                 <af:button text="Cancel" id="b3"/>
                 <af:button text="Departments" id="b1" action="deps" rendered="false"/>
@@ -13,6 +19,43 @@
         </f:facet>
         <f:facet name="legend"/>
         <f:facet name="info"/>
+        <af:panelGroupLayout layout="vertical" id="pgl2">
+            <af:panelHeader text="Employees" id="ph2">
+                <af:query id="qryId1" headerText="Search" disclosed="true"
+                          value="#{bindings.EmployeesViewCriteriaUIQuery.queryDescriptor}"
+                          model="#{bindings.EmployeesViewCriteriaUIQuery.queryModel}"
+                          queryListener="#{bindings.EmployeesViewCriteriaUIQuery.processQuery}"
+                          queryOperationListener="#{bindings.EmployeesViewCriteriaUIQuery.processQueryOperation}"/>
+            </af:panelHeader>
+        </af:panelGroupLayout>
+        <af:panelFormLayout id="pfl1" rows="1" partialTriggers="b4">
+            <af:inputText value="#{bindings.FirstName.inputValue}" label="#{bindings.FirstName.hints.label}"
+                          required="#{bindings.FirstName.hints.mandatory}"
+                          columns="#{bindings.FirstName.hints.displayWidth}"
+                          maximumLength="#{bindings.FirstName.hints.precision}"
+                          shortDesc="#{bindings.FirstName.hints.tooltip}" id="it1">
+                <f:validator binding="#{bindings.FirstName.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.LastName.inputValue}" label="#{bindings.LastName.hints.label}"
+                          required="#{bindings.LastName.hints.mandatory}"
+                          columns="#{bindings.LastName.hints.displayWidth}"
+                          maximumLength="#{bindings.LastName.hints.precision}"
+                          shortDesc="#{bindings.LastName.hints.tooltip}" id="it8">
+                <f:validator binding="#{bindings.LastName.validator}"/>
+            </af:inputText>
+            <af:inputListOfValues id="jobIdId" popupTitle="Search and Select: #{bindings.JobId.hints.label}"
+                                  value="#{bindings.JobId.inputValue}" label="#{bindings.JobId.hints.label}"
+                                  model="#{bindings.JobId.listOfValuesModel}"
+                                  required="#{bindings.JobId.hints.mandatory}"
+                                  columns="#{bindings.JobId.hints.displayWidth}"
+                                  shortDesc="#{bindings.JobId.hints.tooltip}">
+                <f:validator binding="#{bindings.JobId.validator}"/>
+            </af:inputListOfValues>
+            <f:facet name="footer">
+                <af:panelGroupLayout layout="horizontal" id="pgl1"/>
+            </f:facet>
+        </af:panelFormLayout>
+        <af:spacer width="10" height="10" id="s1"/>
         <af:panelCollection id="pc1" styleClass="AFStretchWidth" featuresOff="statusBar">
             <f:facet name="menus"/>
             <f:facet name="toolbar"/>
@@ -25,7 +68,8 @@
                       fetchSize="#{bindings.EmployeesView1.rangeSize}"
                       filterModel="#{bindings.EmployeesView1Query.queryDescriptor}"
                       queryListener="#{bindings.EmployeesView1Query.processQuery}" filterVisible="true" varStatus="vs"
-                      id="t1" columnStretching="column:c2" scrollPolicy="page" autoHeightRows="15">
+                      id="t1" columnStretching="column:c2" scrollPolicy="page" autoHeightRows="15"
+                      partialTriggers=":::b4 :::b5 :::b6 :::b7">
                 <af:column sortProperty="#{bindings.EmployeesView1.hints.FirstName.name}" filterable="true"
                            headerText="#{bindings.EmployeesView1.hints.FirstName.label}" id="c2">
                     <af:inputText value="#{row.bindings.FirstName.inputValue}"

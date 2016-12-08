@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="empls-table-flow">
-    <default-activity>emplsTableView</default-activity>
+    <default-activity>filterByCountry</default-activity>
     <data-control-scope>
       <shared/>
     </data-control-scope>
+    <managed-bean id="__5">
+      <managed-bean-name>EmployeeTableBeans</managed-bean-name>
+      <managed-bean-class>com.redsamurai.view.beans.EmployeesTable</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
     <view id="emplsTableView">
       <page>/fragments/emplsTableView.jsff</page>
     </view>
@@ -14,6 +19,12 @@
         <id>deps-flow</id>
       </task-flow-reference>
     </task-flow-call>
+    <method-call id="filterByCountry">
+      <method>#{bindings.filterByCountry.execute}</method>
+      <outcome>
+        <fixed-outcome>filterByCountry</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>deps-flow</from-activity-id>
       <control-flow-case id="__2">
@@ -26,6 +37,13 @@
       <control-flow-case id="__4">
         <from-outcome>deps</from-outcome>
         <to-activity-id>deps-flow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>filterByCountry</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>filterByCountry</from-outcome>
+        <to-activity-id>emplsTableView</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

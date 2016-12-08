@@ -5,7 +5,7 @@
         <f:facet name="start"/>
         <f:facet name="end"/>
         <f:facet name="top">
-            <af:outputText value="Salary Average" styleClass="WBDashboardDescription" id="ot1"/>
+            <af:outputText value="Salary Average - #{bindings.FirstName.inputValue}" styleClass="WBDashboardDescription" id="ot1"/>
         </f:facet>
         <f:facet name="bottom"/>
         <f:facet name="center">

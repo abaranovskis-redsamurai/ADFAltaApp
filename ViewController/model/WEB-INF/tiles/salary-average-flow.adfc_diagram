@@ -17,7 +17,7 @@
       <property
          name="y">259.53516</property>
       <property
-         name="page">/salaryAverageView.jsff</property>
+         name="page">/fragments/tiles/salaryAverageView.jsff</property>
       <property
          name="exceptionHandler">false</property>
    </View>

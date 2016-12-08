@@ -7,7 +7,8 @@
   Version="12.2.1.16.48"
   InheritPersonalization="merge"
   ComponentClass="com.redsamurai.model.services.HrModuleImpl"
-  ClearCacheOnRollback="true">
+  ClearCacheOnRollback="true"
+  ComponentInterface="com.redsamurai.model.services.common.HrModule">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
@@ -29,4 +30,14 @@
     SrcViewUsageName="com.redsamurai.model.services.HrModule.EmployeesView1"
     DstViewUsageName="com.redsamurai.model.services.HrModule.EmployeesView2"
     Reversed="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="testCall"
+      MethodName="testCall">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </AppModule>
